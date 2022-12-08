@@ -2,14 +2,22 @@ import React from 'react';
 import './CardSlot.css';
 import CardPanel from './CardPanel';
 
-const CardSlot = ({id, card, onCardPress}) => {
+const CardSlot = ({ id, card, onCardPress, onCardMove, onCardRelease }) => {
 	
 	return (
-		<div className='cardSlot'
+		<div 
+			draggable
+			className='cardSlot'
 			style={{'top': card.y_coord+'px', 'left': card.x_coord+"px", 'height': card.y_dim+"px", 'width': card.x_dim+"px"}}
-			draggable onDrag={(event) => { onCardPress(event, id) }}
+			onDragStart={(event) => onCardPress(id, event)}
+			onDrag={(event) => onCardMove(id, event)}
+			onDragEnd={(event) => onCardRelease(id, event)}
 		>
-			<CardPanel card={card}/>
+			<CardPanel
+				id={id}
+				card={card}
+				
+			/>
 		</div>
 	);
 }

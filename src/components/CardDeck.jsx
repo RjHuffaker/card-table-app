@@ -2,7 +2,7 @@ import React from 'react';
 import './CardDeck.css';
 import CardSlot from './CardSlot';
 
-const CardDeck = ({cardList, onCardPress}) => {
+const CardDeck = ({ cardList, onCardPress, onCardMove, onCardRelease }) => {
 	
 	return (
 		<div className='cardDeck'>
@@ -14,6 +14,8 @@ const CardDeck = ({cardList, onCardPress}) => {
 							id={i}
 							card={card}
 							onCardPress={onCardPress}
+							onCardMove={onCardMove}
+							onCardRelease={onCardRelease}
 						/>
 					)
 				})
