@@ -1,21 +1,20 @@
 import React from 'react';
 import './CardDeck.css';
-import CardSlot from './CardSlot';
+import CardPanel from './CardPanel';
 
-const CardDeck = ({ cardList, onCardPress, onCardMove, onCardRelease }) => {
+const CardDeck = ({ cardList, setCardList }) => {
 	
 	return (
 		<div className='cardDeck'>
 			{
 				cardList.map((card, i) => {
 					return (
-						<CardSlot
+						<CardPanel
 							key={i}
 							id={i}
 							card={card}
-							onCardPress={onCardPress}
-							onCardMove={onCardMove}
-							onCardRelease={onCardRelease}
+							cardList={cardList}
+							setCardList={setCardList}
 						/>
 					)
 				})
